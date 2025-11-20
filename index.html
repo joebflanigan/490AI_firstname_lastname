@@ -1,11 +1,87 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>My AI490 Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joe Flanigan — Portfolio</title>
+  <style>
+    :root{
+      --bg:#f7f8fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --accent:#0ea5e9;
+      --border:#e5e7eb;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(2,6,23,.06), 0 2px 8px rgba(2,6,23,.05);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, "Helvetica Neue", Arial, "Noto Sans";
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    .shell{max-width:1080px;margin:auto;padding:28px}
+    header{margin:8px 0 24px}
+    .name{
+      font-weight:800; letter-spacing:.2px; margin:0;
+      font-size:clamp(32px, 4vw, 46px); line-height:1.1; color:#0b1b3a;
+    }
+    .tagline{margin:.35rem 0 0;color:var(--muted);font-size:clamp(14px,1.5vw,18px)}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;}
+    .about{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:start;}
+    .pfp{width:120px;height:120px;border-radius:12px;object-fit:cover;background:#e2e8f0;border:1px solid var(--border);}
+    .about h2{margin:0 0 .25rem;font-size:22px}
+    .about p{margin:.45rem 0;color:#263446}
+    .features{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:24px 0 8px;}
+    .feature{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;text-align:center;}
+    .icon{width:64px;height:64px;border-radius:16px;display:inline-grid;place-items:center;border:1px solid var(--border);margin:4px auto 8px;background:linear-gradient(180deg,#f9fafb,#eef2f7);font-size:30px;}
+    .feature h3{margin:10px 0 2px;font-size:20px}
+    .feature p{margin:6px 0 18px;color:var(--muted);font-size:15px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--text);color:#fff;text-decoration:none;font-weight:600;transition:transform .06s ease, box-shadow .2s ease, background .2s ease;box-shadow:0 10px 18px rgba(2,6,23,.10);}
+    .btn.secondary{background:var(--accent)}
+    .btn:hover{transform:translateY(-1px)}
+    @media (max-width:780px){.about{grid-template-columns:84px 1fr}.pfp{width:84px;height:84px}.features{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
-    <h1>Hello from my first webpage!</h1>
-    <p><strong>Joe Flanigan</strong></p>
-    <p>This page will later host my coursework.</p>
+  <div class="shell">
+    <header>
+      <h1 class="name">Joe Flanigan</h1>
+      <p class="tagline">Undergraduate Student, Managerial Economics | University of Massachusetts Amherst</p>
+    </header>
+
+    <!-- About Me -->
+    <section class="card about">
+      <img class="pfp" src="assets/profile.jpg" alt="Profile photo" />
+      <div>
+        <h2>About Me</h2>
+        <p>I'm a Managerial Economics student with a strong interest in artificial intelligence and data analysis. I enjoy using machine learning and statistical methods to turn data into insights for business decision-making.</p>
+      </div>
+    </section>
+
+    <!-- Buttons / Feature Cards -->
+    <section class="features">
+      <!-- Resume -->
+      <article class="feature">
+        <div class="icon">📄</div>
+        <h3>Resume</h3>
+        <p>View my professional background, education, and experience.</p>
+        <a class="btn" href="assets/resume.pdf" target="_blank">View Resume</a>
+      </article>
+
+      <!-- Projects -->
+      <article class="feature">
+        <div class="icon">📁</div>
+        <h3>Projects</h3>
+        <p>Explore my AI in Economics class project and coursework.</p>
+        <a class="btn secondary" href="project.html">View Projects</a>
+      </article>
+    </section>
+  </div>
 </body>
 </html>
