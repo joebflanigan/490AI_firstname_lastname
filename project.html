@@ -6,129 +6,45 @@
   <title>AI Class Project</title>
   <meta name="description" content="Project page for AI in Economics class: overview, slides, and report." />
   <style>
-    :root {
-      --bg: #f7f8fb;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --accent: #0ea5e9;
-      --border: #e5e7eb;
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(2, 6, 23, 0.06), 0 2px 8px rgba(2, 6, 23, 0.05);
+    :root{
+      --bg:#f7f8fb; --card:#ffffff; --text:#0f172a; --muted:#475569;
+      --accent:#0ea5e9; --border:#e5e7eb; --radius:14px;
+      --shadow:0 10px 30px rgba(2,6,23,.06), 0 2px 8px rgba(2,6,23,.05);
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
       font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
                    Roboto, "Helvetica Neue", Arial, "Noto Sans";
-      line-height: 1.6;
+      line-height:1.6;
     }
+    .shell{max-width:1080px;margin:auto;padding:28px}
+    .back{
+      display:inline-flex; gap:8px; align-items:center;
+      text-decoration:none; color:var(--muted); font-weight:600;
+      margin-bottom:8px;
+    }
+    .title{font-weight:800; letter-spacing:.2px; margin:6px 0 2px;
+      font-size:clamp(30px,4vw,42px)}
+    .subtitle{color:var(--muted); margin:0 0 18px}
 
-    .shell {
-      max-width: 1080px;
-      margin: auto;
-      padding: 28px;
-    }
+    .card{background:var(--card);border:1px solid var(--border);
+      border-radius:var(--radius); box-shadow:var(--shadow); padding:22px;}
 
-    .back {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
+    .features{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:22px 0 8px}
+    .feature{background:var(--card);border:1px solid var(--border);
+      border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;text-align:center}
+    .icon{width:64px;height:64px;border-radius:16px;display:inline-grid;place-items:center;
+      border:1px solid var(--border);margin:4px auto 8px;background:linear-gradient(180deg,#f9fafb,#eef2f7);font-size:30px}
+    .feature h3{margin:10px 0 2px;font-size:20px}
+    .feature p{margin:6px 0 18px;color:var(--muted);font-size:15px}
 
-    .title {
-      font-weight: 800;
-      letter-spacing: 0.2px;
-      margin: 6px 0 2px;
-      font-size: clamp(30px, 4vw, 42px);
-    }
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--text);
+      color:#fff;text-decoration:none;font-weight:600;transition:transform .06s ease, box-shadow .2s ease}
+    .btn.secondary{background:var(--accent)}
+    .btn:hover{transform:translateY(-1px)}
 
-    .subtitle {
-      color: var(--muted);
-      margin: 0 0 18px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      margin: 22px 0 8px;
-    }
-
-    .feature {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 24px;
-      text-align: center;
-    }
-
-    .icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      display: inline-grid;
-      place-items: center;
-      border: 1px solid var(--border);
-      margin: 4px auto 8px;
-      background: linear-gradient(180deg, #f9fafb, #eef2f7);
-      font-size: 30px;
-    }
-
-    .feature h3 {
-      margin: 10px 0 2px;
-      font-size: 20px;
-    }
-
-    .feature p {
-      margin: 6px 0 18px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 12px;
-      background: var(--text);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.06s ease, box-shadow 0.2s ease;
-    }
-
-    .btn.secondary {
-      background: var(--accent);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    @media (max-width: 780px) {
-      .features {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width:780px){ .features{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
@@ -141,36 +57,39 @@
     <section class="card" aria-labelledby="overview-title">
       <h2 id="overview-title">Project Overview</h2>
       <p>
-        This project examines how AI and machine learning can support managerial
-        decision-making in economics. I built a small pipeline for data cleaning,
-        feature engineering, and model training to forecast a business-relevant
-        outcome. The write-up discusses modeling choices, evaluation metrics, and
-        limitations, including fairness and interpretability concerns. Results are
-        framed in terms of managerial insights and next steps for deployment.
+        This project examines how artificial intelligence (AI) and modern economic data tools can help analyze
+        and transform the U.S. hardware retail sector (<em>NAICS 444130</em>). Using lifecycle theory and firm-level
+        indicators, the study positions the sector as moving from maturity to early decline—especially among
+        independent and cooperative-affiliated retailers such as Ace Hardware and True Value. Drawing on BLS,
+        BEA, and Census datasets, the analysis tracks trends in firm formation, profitability, employment, and
+        digital adoption to show persistent structural pressures on small, local operators.
+      </p>
+      <p>
+        AI is framed as both an opportunity and a necessity. Predictive inventory models, dynamic pricing,
+        and customer analytics can improve operational efficiency, online-to-offline conversion, and local
+        competitiveness in a slow-growth environment. The report argues that targeted, pragmatic adoption—particularly
+        by independents and co-ops—can stabilize margins, enhance visibility, and guide smarter expansion decisions,
+        offering a practical blueprint for digital transformation in a legacy retail segment.
       </p>
     </section>
 
     <!-- PROJECT MATERIALS -->
     <h2 style="margin:24px 0 10px">Project Materials</h2>
-    <section class="features">
+    <section class="features" aria-label="Project materials">
       <!-- PRESENTATION -->
       <article class="feature">
-        <div class="icon">🖥️</div>
+        <div class="icon" aria-hidden="true">🖥️</div>
         <h3>Presentation Slides</h3>
         <p>View the project presentation deck.</p>
-        <a class="btn secondary" href="slides.pdf" target="_blank" rel="noopener">
-          View Presentation
-        </a>
+        <a class="btn secondary" href="slides.pdf" target="_blank" rel="noopener">View Presentation</a>
       </article>
 
       <!-- REPORT -->
       <article class="feature">
-        <div class="icon">📑</div>
+        <div class="icon" aria-hidden="true">📑</div>
         <h3>Project Report</h3>
         <p>Read the complete project documentation (PDF).</p>
-        <a class="btn secondary" href="project.pdf" target="_blank" rel="noopener">
-          View Report
-        </a>
+        <a class="btn secondary" href="project.pdf" target="_blank" rel="noopener">View Report</a>
       </article>
     </section>
   </div>
